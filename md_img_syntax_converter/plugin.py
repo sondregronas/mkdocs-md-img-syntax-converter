@@ -2,20 +2,30 @@ from mkdocs.plugins import BasePlugin
 
 import re
 
-r = re.compile(r"(\!\[([^\]]+)\|\s?(\d+%?)x?(\d+%?)?\s?\]\(([^\)]+)\))")
+r = re.compile(r"(\!\[([^\]]+)(?:\|)\s?(\d+%?)x?(\d+%?)?\s?\]\(([^\)]+)\))")
 
 
 def convert_img_syntax(markdown):
     for match in r.finditer(markdown):
-        if match.group(4) is None:
+        original = match.group(1)
+        alt_text = match.group(2)
+        width = match.group(3)
+        height = match.group(4)
+        link = match.group(5)
+
+        if alt_text.endswith('\\'):
+            alt_text = alt_text[:-1]
+
+
+        if height is None:
             markdown = markdown.replace(
-                match.group(1),
-                f'![{match.group(2)}]({match.group(5)}){{width="{match.group(3)}"}}',
+                original,
+                f'![{alt_text}]({link}){{width="{width}"}}',
             )
         else:
             markdown = markdown.replace(
-                match.group(1),
-                f'![{match.group(2)}]({match.group(5)}){{width="{match.group(3)}"; height="{match.group(4)}"}}',
+                original,
+                f'![{alt_text}]({link}){{width="{width}"; height="{height}"}}',
             )
     return markdown
 

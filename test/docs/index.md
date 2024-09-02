@@ -4,6 +4,9 @@
 
 `![img.png|60x40](img.png)`
 
+![img.png\|60x40](img.png)
+
+`![img.png\|60x40](img.png)`
 
 ![img.png 60x40](img.png)
 
