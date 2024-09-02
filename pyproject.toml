@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "md-img-syntax-converter"
+version = "1.0.0"
+keywords = ["markdown", "mkdocs", "converter", "image"]
+description = "Converts obsidian markdown image syntax to mkdocs image syntax (for attributes)"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "Sondre Grønås" }]
+license = { text = "MIT" }
+classifiers = [
+    "License :: OSI Approved :: MIT",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Documentation",
+]
+
+dependencies = [
+    "mkdocs",
+]
+
+[project.urls]
+homepage = "https://github.com/sondregronas/mkdocs-md-img-syntax-converter"
+
+[project.entry-points."mkdocs.plugins"]
+md-img-syntax-converter = "md_img_syntax_converter.plugin:MdImgSyntaxConverterPlugin"

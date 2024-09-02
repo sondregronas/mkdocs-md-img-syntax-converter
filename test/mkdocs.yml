@@ -1,0 +1,7 @@
+site_name: Test
+
+markdown_extensions:
+  - attr_list
+
+plugins:
+  - md-img-syntax-converter
