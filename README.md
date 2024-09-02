@@ -14,6 +14,10 @@ A super simple markdown image syntax converter.
 
 ## Install
 
+```bash
+pip install git+https://github.com/sondregronas/mkdocs-md-img-syntax-converter
+```
+
 Add to mkdocs.yml:
 
 ```yaml
