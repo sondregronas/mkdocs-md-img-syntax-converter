@@ -1,4 +1,5 @@
 from importlib.metadata import version, PackageNotFoundError
+
 from md_img_syntax_converter.plugin import MdImgSyntaxConverterPlugin  # noqa: F401
 
 try:

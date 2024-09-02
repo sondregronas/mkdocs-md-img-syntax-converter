@@ -1,8 +1,8 @@
-from mkdocs.plugins import BasePlugin
-
 import re
 
-r = re.compile(r"(\!\[([^\]]+)(?:\|)\s?(\d+%?)x?(\d+%?)?\s?\]\(([^\)]+)\))")
+from mkdocs.plugins import BasePlugin
+
+r = re.compile(r"(\!\[([^\]]+)\|\s?(\d+%?)x?(\d+%?)?\s?\]\(([^\)]+)\))")
 
 
 def convert_img_syntax(markdown):
@@ -16,17 +16,10 @@ def convert_img_syntax(markdown):
         if alt_text.endswith('\\'):
             alt_text = alt_text[:-1]
 
-
-        if height is None:
-            markdown = markdown.replace(
-                original,
-                f'![{alt_text}]({link}){{width="{width}"}}',
-            )
+        if not height:
+            markdown = markdown.replace(original, f'![{alt_text}]({link}){{width="{width}"}}')
         else:
-            markdown = markdown.replace(
-                original,
-                f'![{alt_text}]({link}){{width="{width}"; height="{height}"}}',
-            )
+            markdown = markdown.replace(original, f'![{alt_text}]({link}){{width="{width}"; height="{height}"}}')
     return markdown
 
 
