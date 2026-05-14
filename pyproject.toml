@@ -19,10 +19,6 @@ classifiers = [
     "Topic :: Documentation",
 ]
 
-dependencies = [
-    "mkdocs",
-]
-
 [project.urls]
 homepage = "https://github.com/sondregronas/mkdocs-md-img-syntax-converter"
 
